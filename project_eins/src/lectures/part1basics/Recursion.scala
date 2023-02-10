@@ -42,4 +42,19 @@ object Recursion extends App {
   println(concatString("Hello", 10))
   println(regularStringRecursion("Hello", 10))
 
+  def isPrime(n: Int): Boolean = {
+    @tailrec
+    def isPrimeTailrec(t: Int, isStillPrime: Boolean): Boolean = {
+      if (!isStillPrime) false
+      else if (t<=1) true
+      else isPrimeTailrec(t-1, n%t!=0 && isStillPrime)
+    }
+    isPrimeTailrec(n/2, true)
+  }
+
+  println(isPrime(2003))
+  println(isPrime(629))
+
+  System.out.println(2003/2)
+  System.out.println(2003.0/2.0)
 }
